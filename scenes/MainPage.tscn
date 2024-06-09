@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://imte6jtrqu6u"]
+
+[ext_resource type="Script" path="res://MainPage.cs" id="1_rt4e8"]
+[ext_resource type="Texture2D" uid="uid://bdpyai80u1pve" path="res://resources/opera_b4bSHhXNoL.png" id="2_yjgq6"]
+[ext_resource type="FontFile" uid="uid://o4vxjr57wr2e" path="res://resources/Candlefish.ttf" id="3_kndy5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1118t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7quo"]
+bg_color = Color(0, 0, 0, 0.333333)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7qvi"]
+bg_color = Color(0, 0, 0, 0.333333)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ce1k"]
+font = ExtResource("3_kndy5")
+font_size = 41
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainPage" type="Node2D"]
+script = ExtResource("1_rt4e8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(497, 298)
+scale = Vector2(1.98406, 2.46524)
+texture = ExtResource("2_yjgq6")
+
+[node name="Initialize" type="Button" parent="CanvasLayer"]
+offset_left = 74.0
+offset_top = 211.0
+offset_right = 270.0
+offset_bottom = 286.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_kndy5")
+theme_override_font_sizes/font_size = 48
+text = "Connect"
+flat = true
+
+[node name="ConsoleBorder" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = 519.0
+offset_right = 1212.0
+offset_bottom = 669.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1118t")
+
+[node name="Console" type="RichTextLabel" parent="CanvasLayer/ConsoleBorder"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 778.0
+offset_bottom = 145.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7quo")
+scroll_following = true
+
+[node name="ChatLog" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 643.0
+offset_top = 207.0
+offset_right = 1214.0
+offset_bottom = 490.0
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7quo")
+scroll_following = true
+
+[node name="GuildsList" type="ItemList" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = 207.0
+offset_right = 625.0
+offset_bottom = 490.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7qvi")
+
+[node name="ChatLabel" type="Label" parent="CanvasLayer"]
+offset_left = 836.0
+offset_top = 140.0
+offset_right = 1025.0
+offset_bottom = 195.0
+text = "Chat Log"
+label_settings = SubResource("LabelSettings_4ce1k")
+
+[node name="ServerList" type="Label" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = 142.0
+offset_right = 618.0
+offset_bottom = 197.0
+text = "Server List"
+label_settings = SubResource("LabelSettings_4ce1k")
+
+[node name="PrefixBox" type="LineEdit" parent="CanvasLayer"]
+visible = false
+offset_left = 75.0
+offset_top = 452.0
+offset_right = 195.0
+offset_bottom = 483.0
+placeholder_text = "Prefix"
+
+[node name="ResponseBox" type="TextEdit" parent="CanvasLayer"]
+visible = false
+offset_left = 75.0
+offset_top = 495.0
+offset_right = 277.0
+offset_bottom = 625.0
+placeholder_text = "Response Field"
+
+[node name="SubmitCommandButton" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 78.0
+offset_top = 634.0
+offset_right = 151.0
+offset_bottom = 665.0
+text = "Submit"
+
+[node name="AddCommandButton" type="Button" parent="CanvasLayer"]
+offset_left = 75.0
+offset_top = 418.0
+offset_right = 222.0
+offset_bottom = 445.0
+theme_override_fonts/font = ExtResource("3_kndy5")
+text = "Add Command"
+
+[node name="ChangeTokenButton" type="Button" parent="CanvasLayer"]
+offset_left = 1101.0
+offset_top = 56.0
+offset_right = 1219.0
+offset_bottom = 87.0
+text = "Change Token"
+
+[node name="TokenField" type="LineEdit" parent="CanvasLayer"]
+visible = false
+offset_left = 687.0
+offset_top = 56.0
+offset_right = 1091.0
+offset_bottom = 87.0
+
+[node name="ButtonTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="pressed" from="CanvasLayer/Initialize" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/SubmitCommandButton" to="." method="_on_submit_command_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/AddCommandButton" to="." method="_on_add_command_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChangeTokenButton" to="." method="_on_change_token_button_pressed"]
+[connection signal="timeout" from="ButtonTimer" to="." method="_on_button_timer_timeout"]

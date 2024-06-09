@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Godot Projects\\BotV2\\BotV2.csproj": {}
+  },
+  "projects": {
+    "F:\\Godot Projects\\BotV2\\BotV2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Godot Projects\\BotV2\\BotV2.csproj",
+        "projectName": "BotV2",
+        "projectPath": "F:\\Godot Projects\\BotV2\\BotV2.csproj",
+        "packagesPath": "C:\\Users\\sir42\\.nuget\\packages\\",
+        "outputPath": "F:\\Godot Projects\\BotV2\\.godot\\mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sir42\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "DSharpPlus": {
+              "target": "Package",
+              "version": "[5.0.0-nightly-02283, )"
+            },
+            "DSharpPlus.CommandsNext": {
+              "target": "Package",
+              "version": "[5.0.0-nightly-02283, )"
+            },
+            "DSharpPlus.SlashCommands": {
+              "target": "Package",
+              "version": "[5.0.0-nightly-02283, )"
+            },
+            "Godot.SourceGenerators": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "GodotSharp": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "GodotSharpEditor": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
