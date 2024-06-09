@@ -18,6 +18,4 @@ To add custom commands:
 2: Fill out the required prefix and response fields.  Prefix is what you and your users will type(eg "!type"), and response is what your bot will say in response.
 3: Once the fields are filled, simply press submit!
 
-NOTE: In this early release of the bot, custom commands are not saved between sessions, and will have to be re-entered in.
-
 If for whatever reason your token gets reset and you need to update it, just use the Change Token button in the upper right.
