@@ -29,3 +29,4 @@ F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Microsoft.Extensions.Primitiv
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Newtonsoft.Json.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Polly.Core.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Ulid.dll
+F:\Godot Projects\BotV2\.godot\mono\temp\obj\Debug\BotV2.sourcelink.json

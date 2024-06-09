@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus;
@@ -42,6 +43,15 @@ public partial class MainPage : Node2D
 		changeTokenButton = GetNode<Button>("CanvasLayer/ChangeTokenButton");
 		tokenField = GetNode<LineEdit>("CanvasLayer/TokenField");
 		ct = tokensource2.Token;
+		if (File.Exists("commandlist.txt"))
+		{
+			string[] commandFile = File.ReadAllLines("commandlist.txt");
+			commandList = new List<string>(commandFile);
+		}
+		else
+		{
+			File.Create("commandlist.txt").Close();
+		}
 	}
 	//button press signal linked from godot client
 	private async void _on_button_pressed()
@@ -166,6 +176,8 @@ public partial class MainPage : Node2D
 	{
 		commandList.Add(prefixField.Text);
 		commandList.Add(responseField.Text);
+		File.AppendAllText("commandlist.txt", prefixField.Text + System.Environment.NewLine);
+		File.AppendAllText("commandlist.txt", responseField.Text + System.Environment.NewLine);
 		responseField.Clear();
 		prefixField.Clear();
 		consoleWindow.Text += ">>> Added command successfully!\n";
@@ -173,6 +185,7 @@ public partial class MainPage : Node2D
 		responseField.Visible = false;
 		submitButton.Visible = false;
 		addCommandButton.Visible = true;
+
 	}
 	private void _on_add_command_button_pressed()
 	{
