@@ -1,4 +1,4 @@
-SimpleBot is a user-friendly self-hosed discord chat bot built on the godot game engine!
+SimpleBot is a user-friendly self-hosted discord chat bot built on the godot game engine!
 
 It features message logging as well as the ability to add simple prefix based chat commands, all packaged within an easy to understand interface.
 
