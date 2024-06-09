@@ -210,3 +210,4 @@ F:\Godot Projects\BotV2\.godot\mono\temp\obj\ExportRelease\win-x64\refint\BotV2.
 F:\Godot Projects\BotV2\.godot\mono\temp\obj\ExportRelease\win-x64\BotV2.pdb
 F:\Godot Projects\BotV2\.godot\mono\temp\obj\ExportRelease\win-x64\BotV2.genruntimeconfig.cache
 F:\Godot Projects\BotV2\.godot\mono\temp\obj\ExportRelease\win-x64\ref\BotV2.dll
+F:\Godot Projects\BotV2\.godot\mono\temp\obj\ExportRelease\win-x64\BotV2.sourcelink.json
