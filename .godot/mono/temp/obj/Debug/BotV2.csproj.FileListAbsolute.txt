@@ -16,8 +16,6 @@ F:\Godot Projects\BotV2\.godot\mono\temp\obj\Debug\BotV2.pdb
 F:\Godot Projects\BotV2\.godot\mono\temp\obj\Debug\BotV2.genruntimeconfig.cache
 F:\Godot Projects\BotV2\.godot\mono\temp\obj\Debug\ref\BotV2.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\DSharpPlus.dll
-F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\DSharpPlus.CommandsNext.dll
-F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\DSharpPlus.SlashCommands.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
 F:\Godot Projects\BotV2\.godot\mono\temp\bin\Debug\Microsoft.Extensions.DependencyInjection.dll

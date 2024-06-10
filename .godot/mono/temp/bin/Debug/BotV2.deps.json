@@ -9,8 +9,6 @@
       "BotV2/1.0.0": {
         "dependencies": {
           "DSharpPlus": "5.0.0-nightly-02283",
-          "DSharpPlus.CommandsNext": "5.0.0-nightly-02283",
-          "DSharpPlus.SlashCommands": "5.0.0-nightly-02283",
           "Godot.SourceGenerators": "4.2.2",
           "GodotSharp": "4.2.2",
           "GodotSharpEditor": "4.2.2",
@@ -31,31 +29,6 @@
         },
         "runtime": {
           "lib/net8.0/DSharpPlus.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
-          }
-        }
-      },
-      "DSharpPlus.CommandsNext/5.0.0-nightly-02283": {
-        "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02283",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.1"
-        },
-        "runtime": {
-          "lib/net8.0/DSharpPlus.CommandsNext.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
-          }
-        }
-      },
-      "DSharpPlus.SlashCommands/5.0.0-nightly-02283": {
-        "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02283",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0"
-        },
-        "runtime": {
-          "lib/net8.0/DSharpPlus.SlashCommands.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.0.0"
           }
@@ -208,20 +181,6 @@
       "sha512": "sha512-YGDKB+5QMosBwjYPauuyp13oSzOFFkfAEbWvDRve/3o64TifC6G+oqs3/TXEihkJgJRdaZ8t1AmJYs7Rpuf4tQ==",
       "path": "dsharpplus/5.0.0-nightly-02283",
       "hashPath": "dsharpplus.5.0.0-nightly-02283.nupkg.sha512"
-    },
-    "DSharpPlus.CommandsNext/5.0.0-nightly-02283": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-8PCJXQAe+y1G55YMeDN+wJ2tfXTIKYrmCTKsuLrwqtv+NJhdbSRBKwOveSlnyyTnr9tsC7QTIQEWWYk5z0HPww==",
-      "path": "dsharpplus.commandsnext/5.0.0-nightly-02283",
-      "hashPath": "dsharpplus.commandsnext.5.0.0-nightly-02283.nupkg.sha512"
-    },
-    "DSharpPlus.SlashCommands/5.0.0-nightly-02283": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZKdomam5mrAE1j0i4oYwP6SbC26SsYG0c6Xbna14rkNRSMwiAi4obd90oetB5QYzGvIODfYfaaVgzNIgKN4sKQ==",
-      "path": "dsharpplus.slashcommands/5.0.0-nightly-02283",
-      "hashPath": "dsharpplus.slashcommands.5.0.0-nightly-02283.nupkg.sha512"
     },
     "Godot.SourceGenerators/4.2.2": {
       "type": "package",

@@ -1,7 +1,7 @@
 using Godot;
 using System.IO;
 
-internal partial class token_page : Node2D
+internal partial class TokenPage : Node2D
 {
 	private Button submitButton;
 	private LineEdit tokenField;
