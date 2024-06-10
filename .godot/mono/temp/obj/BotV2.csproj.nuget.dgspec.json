@@ -47,14 +47,6 @@
               "target": "Package",
               "version": "[5.0.0-nightly-02283, )"
             },
-            "DSharpPlus.CommandsNext": {
-              "target": "Package",
-              "version": "[5.0.0-nightly-02283, )"
-            },
-            "DSharpPlus.SlashCommands": {
-              "target": "Package",
-              "version": "[5.0.0-nightly-02283, )"
-            },
             "Godot.SourceGenerators": {
               "target": "Package",
               "version": "[4.2.2, )"

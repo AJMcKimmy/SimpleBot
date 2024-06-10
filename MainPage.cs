@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
 using System.Collections.Generic;
 using DSharpPlus.Entities;
 internal partial class MainPage : Node2D

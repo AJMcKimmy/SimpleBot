@@ -23,41 +23,6 @@
           }
         }
       },
-      "DSharpPlus.CommandsNext/5.0.0-nightly-02283": {
-        "type": "package",
-        "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02283",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.1"
-        },
-        "compile": {
-          "lib/net8.0/DSharpPlus.CommandsNext.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/DSharpPlus.CommandsNext.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "DSharpPlus.SlashCommands/5.0.0-nightly-02283": {
-        "type": "package",
-        "dependencies": {
-          "DSharpPlus": "5.0.0-nightly-02283",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0/DSharpPlus.SlashCommands.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/DSharpPlus.SlashCommands.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Godot.SourceGenerators/4.2.2": {
         "type": "package",
         "build": {
@@ -302,38 +267,6 @@
         "dsharpplus.png",
         "lib/net8.0/DSharpPlus.dll",
         "lib/net8.0/DSharpPlus.xml"
-      ]
-    },
-    "DSharpPlus.CommandsNext/5.0.0-nightly-02283": {
-      "sha512": "8PCJXQAe+y1G55YMeDN+wJ2tfXTIKYrmCTKsuLrwqtv+NJhdbSRBKwOveSlnyyTnr9tsC7QTIQEWWYk5z0HPww==",
-      "type": "package",
-      "path": "dsharpplus.commandsnext/5.0.0-nightly-02283",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "README.md",
-        "dsharpplus.commandsnext.5.0.0-nightly-02283.nupkg.sha512",
-        "dsharpplus.commandsnext.nuspec",
-        "dsharpplus.png",
-        "lib/net8.0/DSharpPlus.CommandsNext.dll",
-        "lib/net8.0/DSharpPlus.CommandsNext.xml"
-      ]
-    },
-    "DSharpPlus.SlashCommands/5.0.0-nightly-02283": {
-      "sha512": "ZKdomam5mrAE1j0i4oYwP6SbC26SsYG0c6Xbna14rkNRSMwiAi4obd90oetB5QYzGvIODfYfaaVgzNIgKN4sKQ==",
-      "type": "package",
-      "path": "dsharpplus.slashcommands/5.0.0-nightly-02283",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "README.md",
-        "dsharpplus.png",
-        "dsharpplus.slashcommands.5.0.0-nightly-02283.nupkg.sha512",
-        "dsharpplus.slashcommands.nuspec",
-        "lib/net8.0/DSharpPlus.SlashCommands.dll",
-        "lib/net8.0/DSharpPlus.SlashCommands.xml"
       ]
     },
     "Godot.SourceGenerators/4.2.2": {
@@ -765,8 +698,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "DSharpPlus >= 5.0.0-nightly-02283",
-      "DSharpPlus.CommandsNext >= 5.0.0-nightly-02283",
-      "DSharpPlus.SlashCommands >= 5.0.0-nightly-02283",
       "Godot.SourceGenerators >= 4.2.2",
       "GodotSharp >= 4.2.2",
       "GodotSharpEditor >= 4.2.2",
@@ -816,14 +747,6 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "DSharpPlus": {
-            "target": "Package",
-            "version": "[5.0.0-nightly-02283, )"
-          },
-          "DSharpPlus.CommandsNext": {
-            "target": "Package",
-            "version": "[5.0.0-nightly-02283, )"
-          },
-          "DSharpPlus.SlashCommands": {
             "target": "Package",
             "version": "[5.0.0-nightly-02283, )"
           },

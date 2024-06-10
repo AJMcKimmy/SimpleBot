@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "V/gVGJMpc6A=",
+  "dgSpecHash": "ge0CLUWz85E=",
   "success": true,
   "projectFilePath": "F:\\Godot Projects\\BotV2\\BotV2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sir42\\.nuget\\packages\\dsharpplus\\5.0.0-nightly-02283\\dsharpplus.5.0.0-nightly-02283.nupkg.sha512",
-    "C:\\Users\\sir42\\.nuget\\packages\\dsharpplus.commandsnext\\5.0.0-nightly-02283\\dsharpplus.commandsnext.5.0.0-nightly-02283.nupkg.sha512",
-    "C:\\Users\\sir42\\.nuget\\packages\\dsharpplus.slashcommands\\5.0.0-nightly-02283\\dsharpplus.slashcommands.5.0.0-nightly-02283.nupkg.sha512",
     "C:\\Users\\sir42\\.nuget\\packages\\godot.sourcegenerators\\4.2.2\\godot.sourcegenerators.4.2.2.nupkg.sha512",
     "C:\\Users\\sir42\\.nuget\\packages\\godotsharp\\4.2.2\\godotsharp.4.2.2.nupkg.sha512",
     "C:\\Users\\sir42\\.nuget\\packages\\godotsharpeditor\\4.2.2\\godotsharpeditor.4.2.2.nupkg.sha512",
