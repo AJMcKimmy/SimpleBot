@@ -18,7 +18,7 @@ public class JSONReader
 			}
 		}
 
-		public async Task WriteJSON(string token)
+		public Task WriteJSON(string token)
 		{
 			JObject tokenField = new JObject(
 				new JProperty("token", token)
@@ -29,6 +29,7 @@ public class JSONReader
 			{
 				tokenField.WriteTo(writer);
 			}
+			return Task.CompletedTask;
 		}
 
 		internal sealed class ConfigJSON

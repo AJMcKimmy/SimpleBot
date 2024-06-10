@@ -1,4 +1,3 @@
-res://scenes/MainPage.tscn
+res://scenes/TokenPage.tscn
 res://MainPage.cs
-res://scenes/token_page.tscn
-res://token_page.cs
+res://scenes/MainPage.tscn

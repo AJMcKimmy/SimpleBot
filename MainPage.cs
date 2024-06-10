@@ -7,20 +7,8 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using System.Collections.Generic;
 using DSharpPlus.Entities;
-public partial class MainPage : Node2D
+internal partial class MainPage : Node2D
 {
-
-	private Button startButton;
-	private RichTextLabel consoleWindow;
-	private Godot.Timer buttonTimer;
-	private ItemList guildList;
-	private RichTextLabel chatWindow;
-	private LineEdit prefixField;
-	private TextEdit responseField;
-	private Button submitButton;
-	private Button addCommandButton;
-	private Button changeTokenButton;
-	private LineEdit tokenField;
 	private CancellationTokenSource tokensource2 = new CancellationTokenSource();
 	private CancellationToken ct;
 	private bool initialized = false;
@@ -37,7 +25,7 @@ public partial class MainPage : Node2D
 		uIElements.consoleWindow = GetNode<RichTextLabel>("CanvasLayer/ConsoleBorder/Console");
 		uIElements.buttonTimer = GetNode<Godot.Timer>("ButtonTimer");
 		uIElements.guildList = GetNode<ItemList>("CanvasLayer/GuildsList");
-		uIElements.chatWindow = GetNode<RichTextLabel>("CanvasLayer/ChatLog");
+		uIElements.chatWindow = GetNode<RichTextLabel>("CanvasLayer/ChatBorder/ChatLog");
 		uIElements.submitButton = GetNode<Button>("CanvasLayer/SubmitCommandButton");
 		uIElements.prefixField = GetNode<LineEdit>("CanvasLayer/PrefixBox");
 		uIElements.responseField = GetNode<TextEdit>("CanvasLayer/ResponseBox");
@@ -67,7 +55,7 @@ public partial class MainPage : Node2D
 			{
 				uIElements.startButton.Text = "Disconnect";
 				initialized = true;
-				uIElements.consoleWindow.Text += ">>> Attempting to start bot\n";	
+				await LogHistory.LogConsoleHistory(">>> Attempting to start bot\n", uIElements.consoleWindow);	
 				tokensource2 = new CancellationTokenSource();
 				ct = tokensource2.Token;		
 				await BotStart(uIElements.startButton, uIElements.consoleWindow, ct, uIElements.guildList, uIElements.chatWindow, commandList);			
@@ -76,7 +64,7 @@ public partial class MainPage : Node2D
 			{
 				initialized = false;
 				uIElements.startButton.Text = "Connect";
-				uIElements.consoleWindow.Text += ">>> Bot Stopped!\n";
+				await LogHistory.LogConsoleHistory(">>> Bot Stopped!\n", uIElements.consoleWindow);
 				uIElements.guildList.Clear();
 				tokensource2.Cancel();
 				tokensource2 = new CancellationTokenSource();
@@ -90,7 +78,7 @@ public partial class MainPage : Node2D
 		buttonOnCooldown = false;
 	}
 
-	static async Task BotStart(Button startButton, RichTextLabel consoleWindow, CancellationToken ct, ItemList guildList, RichTextLabel cWindow, List<string> cList)
+	internal async Task BotStart(Button startButton, RichTextLabel consoleWindow, CancellationToken ct, ItemList guildList, RichTextLabel cWindow, List<string> cList)
 	{
 		JSONReader configJsonFile = new JSONReader();
 		await configJsonFile.ReadJSON();
@@ -104,7 +92,9 @@ public partial class MainPage : Node2D
 				{
 					if (e.Message.Author.GlobalName.Length > 1)
 					{
-						cWindow.CallDeferred("add_text", (e.Message.Author.GlobalName) + " said " + "'" + (e.Message.Content) + "'" + " in " + "(" + e.Message.Channel.Guild.Name + ")" + (e.Message.Channel.Name)+ "\n");
+						string message = $"{e.Message.Author.GlobalName} said '{e.Message.Content}' in ({e.Message.Channel.Guild.Name}) {e.Message.Channel.Name}\n";
+						cWindow.CallDeferred("add_text", message);
+						await LogHistory.LogMessageHistory(message);
 						if (e.Message.Content.ToLower().StartsWith("ping"))
 						{
 							await e.Message.RespondAsync("pong!");
@@ -135,22 +125,16 @@ public partial class MainPage : Node2D
 		
 		DiscordClient client = builder.Build();
 
-		//sets up commands from Commands.cs
-		CommandsNextExtension commands = client.UseCommandsNext(new CommandsNextConfiguration(){StringPrefixes = new[] { "!" }});
-		commands.RegisterCommands<Commands>();
-
-		
-
 		//checks for valid connection
 		try 
 		{
 			await client.ConnectAsync();
-			consoleWindow.Text += (">>> Bot Successfully connected at: " + client.GatewayInfo.Url + "\n");
+			await LogHistory.LogConsoleHistory($">>> Bot successfully connected at: {client.GatewayInfo.Url}\n", uIElements.consoleWindow);
 		}
 		catch (Exception ex)
 		{
-			consoleWindow.Text += (ex, ex.Message + "\n");
-			consoleWindow.Text += (">>> Bot failed to connect.  This is most likely due to an incorrect token.\n");
+			await LogHistory.LogConsoleHistory($"{ex}, {ex.Message}", uIElements.consoleWindow);
+			await LogHistory.LogConsoleHistory(">>> Bot failed to connect.  This is most likely due to an incorrect token.\n", uIElements.consoleWindow);
 		}
 
 		//Botstop to watch for client disconnect requests
@@ -174,21 +158,31 @@ public partial class MainPage : Node2D
 			}
 		}
 	}
-	private void _on_submit_command_button_pressed()
-	{
-		commandList.Add(prefixField.Text);
-		commandList.Add(responseField.Text);
-		File.AppendAllText("commandlist.txt", prefixField.Text + System.Environment.NewLine);
-		File.AppendAllText("commandlist.txt", responseField.Text + System.Environment.NewLine);
-		uIElements.responseField.Clear();
-		uIElements.prefixField.Clear();
-		uIElements.consoleWindow.Text += ">>> Added command successfully!\n";
-		uIElements.prefixField.Visible = false;
-		uIElements.responseField.Visible = false;
-		uIElements.submitButton.Visible = false;
-		uIElements.addCommandButton.Visible = true;
 
+	//handles custom command submission
+	private async void _on_submit_command_button_pressed()
+	{
+		if (uIElements.prefixField.Text.Contains(" "))
+		{
+			await LogHistory.LogConsoleHistory(">>> Custom command improperly formatted, do not use any spaces\n", uIElements.consoleWindow);
+		}
+		else
+		{
+			commandList.Add(uIElements.prefixField.Text);
+			commandList.Add(uIElements.responseField.Text);
+			File.AppendAllText("commandlist.txt", uIElements.prefixField.Text + System.Environment.NewLine);
+			File.AppendAllText("commandlist.txt", uIElements.responseField.Text + System.Environment.NewLine);
+			uIElements.responseField.Clear();
+			uIElements.prefixField.Clear();
+			await LogHistory.LogConsoleHistory(">>> Added command successfully!\n", uIElements.consoleWindow);
+			uIElements.prefixField.Visible = false;
+			uIElements.responseField.Visible = false;
+			uIElements.submitButton.Visible = false;
+			uIElements.addCommandButton.Visible = true;
+		}
 	}
+
+	//shows fields for custom command submission
 	private void _on_add_command_button_pressed()
 	{
 		uIElements.submitButton.Visible = true;
@@ -197,7 +191,7 @@ public partial class MainPage : Node2D
 		uIElements.addCommandButton.Visible = false;
 	}
 
-	private async void _on_change_token_button_pressed()
+	private void _on_change_token_button_pressed()
 	{
 		if (!fieldActive)
 		{
@@ -210,12 +204,11 @@ public partial class MainPage : Node2D
 			String token = uIElements.tokenField.Text;
 			JSONReader configJsonFile = new JSONReader();
 			fieldActive = false;
-			await configJsonFile.WriteJSON(token);
+			configJsonFile.WriteJSON(token);
 			uIElements.tokenField.Visible = false;
 			uIElements.changeTokenButton.Text = "Change Token";
 			uIElements.consoleWindow.Text += ">>> Token Updated\n";
-		}
-		
+		}		
 	}
 }
 

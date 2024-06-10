@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://imte6jtrqu6u"]
+[gd_scene load_steps=10 format=3 uid="uid://imte6jtrqu6u"]
 
 [ext_resource type="Script" path="res://MainPage.cs" id="1_rt4e8"]
 [ext_resource type="Texture2D" uid="uid://bdpyai80u1pve" path="res://resources/opera_b4bSHhXNoL.png" id="2_yjgq6"]
@@ -16,6 +16,14 @@ border_color = Color(0, 0, 0, 1)
 bg_color = Color(0, 0, 0, 0.333333)
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yykqy"]
+bg_color = Color(0.6, 0.6, 0.607843, 0.00392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7qvi"]
 bg_color = Color(0, 0, 0, 0.333333)
 border_width_left = 5
@@ -27,6 +35,11 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_4ce1k"]
 font = ExtResource("3_kndy5")
 font_size = 41
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhib4"]
+font_size = 85
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
@@ -70,20 +83,27 @@ theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7quo")
 scroll_following = true
 
-[node name="ChatLog" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 643.0
-offset_top = 207.0
-offset_right = 1214.0
-offset_bottom = 490.0
+[node name="ChatBorder" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 631.0
+offset_top = 198.0
+offset_right = 1211.0
+offset_bottom = 491.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yykqy")
+
+[node name="ChatLog" type="RichTextLabel" parent="CanvasLayer/ChatBorder"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 576.0
+offset_bottom = 288.0
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7quo")
 scroll_following = true
 
 [node name="GuildsList" type="ItemList" parent="CanvasLayer"]
 offset_left = 429.0
-offset_top = 207.0
+offset_top = 198.0
 offset_right = 625.0
-offset_bottom = 490.0
+offset_bottom = 491.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_g7qvi")
 
@@ -148,6 +168,16 @@ offset_left = 687.0
 offset_top = 56.0
 offset_right = 1091.0
 offset_bottom = 87.0
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 42.0
+offset_right = 414.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("3_kndy5")
+theme_override_font_sizes/font_size = 74
+text = "SimpleBot"
+label_settings = SubResource("LabelSettings_vhib4")
 
 [node name="ButtonTimer" type="Timer" parent="."]
 wait_time = 1.5

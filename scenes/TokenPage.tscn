@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd063qmcrul7o"]
+
+[ext_resource type="Script" path="res://TokenPage.cs" id="1_0nie7"]
+[ext_resource type="Texture2D" uid="uid://bdpyai80u1pve" path="res://resources/opera_b4bSHhXNoL.png" id="2_dsh2i"]
+[ext_resource type="FontFile" uid="uid://o4vxjr57wr2e" path="res://resources/Candlefish.ttf" id="3_ejnui"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u46wo"]
+font_size = 85
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TokenPage" type="Node2D"]
+script = ExtResource("1_0nie7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(497, 298)
+scale = Vector2(1.98406, 2.46524)
+texture = ExtResource("2_dsh2i")
+
+[node name="TokenField" type="LineEdit" parent="CanvasLayer"]
+offset_left = 257.0
+offset_top = 302.0
+offset_right = 736.0
+offset_bottom = 333.0
+placeholder_text = "Token Here"
+
+[node name="Submit" type="Button" parent="CanvasLayer"]
+offset_left = 767.0
+offset_top = 301.0
+offset_right = 861.0
+offset_bottom = 330.0
+text = "Submit"
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 42.0
+offset_right = 414.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("3_ejnui")
+theme_override_font_sizes/font_size = 74
+text = "SimpleBot"
+label_settings = SubResource("LabelSettings_u46wo")
+
+[connection signal="pressed" from="CanvasLayer/Submit" to="." method="_on_submit_pressed"]

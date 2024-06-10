@@ -1,9 +1,9 @@
+Label
 LineEdit
-Button
 RichTextLabel
+Button
 CanvasLayer
 Node2D
-Label
 TextEdit
 Sprite2D
 CharacterBody2D

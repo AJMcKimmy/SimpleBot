@@ -1,10 +1,10 @@
 using Godot;
 using System.IO;
 
-public partial class token_page : Node2D
+internal partial class token_page : Node2D
 {
-	public Button submitButton;
-	public LineEdit tokenField;
+	private Button submitButton;
+	private LineEdit tokenField;
 	
 	public override void _Ready()
 	{
