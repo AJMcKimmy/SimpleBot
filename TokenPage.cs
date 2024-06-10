@@ -26,7 +26,15 @@ internal partial class TokenPage : Node2D
 		await configJsonFile.WriteJSON(tokenField.Text);
 		GetTree().ChangeSceneToFile("res://scenes/MainPage.tscn");
 	}
+
+	private void _on_token_field_text_submitted(string new_text)
+	{
+		_on_submit_pressed();
+	}
 }
+
+
+
 
 
 
